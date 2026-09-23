@@ -1,15 +1,17 @@
 :root {
   --pad: max(16px, env(safe-area-inset-left));
-  --gold: #e8c38a;
-  --ink: #f4efe6;
-  --mute: rgba(244,239,230,.72);
-  --line: rgba(232,195,138,.28);
-  --glass: rgba(8,8,8,.55);
+  --gold: #8a6a3a;
+  --gold-soft: #c4a36a;
+  --ink: #2a2218;
+  --mute: rgba(42,34,24,.62);
+  --line: rgba(138,106,58,.35);
+  --glass: rgba(255,252,247,.72);
+  --marble: #f4eee4;
 }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body {
   margin: 0; padding: 0;
-  background: #050505;
+  background: #efe8dc;
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
@@ -27,11 +29,16 @@ body {
   min-height: 100dvh;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  background-color: #f3ece1;
   background-image:
-    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.78) 55%, rgba(5,5,5,.92) 100%),
-    radial-gradient(120% 80% at 50% 0%, #3a2a18 0%, #120e0a 42%, #050505 100%);
+    radial-gradient(ellipse at 18% 8%, rgba(255,255,255,.72), transparent 36%),
+    radial-gradient(ellipse at 82% 22%, rgba(255,255,255,.38), transparent 32%),
+    radial-gradient(ellipse at 40% 78%, rgba(210,196,176,.28), transparent 42%),
+    repeating-linear-gradient(118deg, rgba(120,96,72,.045) 0 1px, transparent 1px 13px),
+    repeating-linear-gradient(28deg, rgba(90,70,50,.03) 0 1px, transparent 1px 18px),
+    linear-gradient(165deg, #fbf7f0 0%, #efe6d8 46%, #e6d9c8 100%);
   background-size: cover;
-  background-position: center 28%;
+  background-attachment: local;
   padding:
     calc(env(safe-area-inset-top) + 56px)
     max(16px, env(safe-area-inset-right))
@@ -44,16 +51,16 @@ body {
   position: fixed; top: 0; left: 0; right: 0; z-index: 20;
   display: flex; gap: 6px; justify-content: center; flex-wrap: nowrap;
   padding: calc(env(safe-area-inset-top) + 8px) 12px 8px;
-  background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,0));
+  background: linear-gradient(180deg, rgba(247,241,232,.92), rgba(247,241,232,0));
 }
 .wbtn {
   appearance: none; border: 1px solid var(--line);
-  background: rgba(0,0,0,.45); color: var(--gold);
+  background: rgba(255,252,247,.7); color: var(--gold);
   font: 700 13px/1 -apple-system, system-ui, sans-serif;
   letter-spacing: .06em;
   padding: 8px 11px; border-radius: 999px;
 }
-.wbtn.on { background: var(--gold); color: #1a1208; border-color: var(--gold); }
+.wbtn.on { background: var(--gold); color: #f7f1e8; border-color: var(--gold); }
 .cover { justify-content: flex-end; }
 .cover-inner { max-width: 22rem; }
 .eyebrow {
@@ -71,7 +78,7 @@ h2 {
 .hint { font-size: 13px; line-height: 1.4; max-width: 22rem; }
 .go {
   display: inline-block; margin-top: 18px;
-  color: #1a1208; background: var(--gold); text-decoration: none;
+  color: #f7f1e8; background: var(--gold); text-decoration: none;
   font-weight: 800; padding: 12px 18px; border-radius: 999px; font-size: 15px;
 }
 .day-h { margin-bottom: 10px; flex: 0 0 auto; }
@@ -80,7 +87,7 @@ h2 {
   padding: 8px 10px; border-radius: 10px;
   background: var(--glass); border: 1px solid var(--line);
 }
-.flag { border-color: rgba(232,160,80,.5); color: #f0d2a0; }
+.flag { border-color: rgba(168,96,40,.45); color: #6b3e16; }
 .lifts {
   display: flex; flex-direction: column; gap: 6px;
   flex: 1 1 auto;
@@ -94,13 +101,13 @@ h2 {
   grid-template-columns: 28px 1fr auto;
   gap: 8px; align-items: center;
   background: var(--glass);
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(90,70,50,.12);
   border-radius: 12px;
   padding: 8px 10px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-.lift.bi { border-color: rgba(232,195,138,.35); }
+.lift.bi { border-color: rgba(138,106,58,.4); }
 .done { position: absolute; opacity: 0; pointer-events: none; }
 .box {
   width: 22px; height: 22px; border-radius: 6px;
@@ -111,7 +118,7 @@ h2 {
 .lift:has(.done:checked) .box { background: var(--gold); }
 .lift:has(.done:checked) .box::after {
   content: ""; width: 10px; height: 6px;
-  border-left: 2px solid #1a1208; border-bottom: 2px solid #1a1208;
+  border-left: 2px solid #f7f1e8; border-bottom: 2px solid #f7f1e8;
   transform: rotate(-45deg) translate(1px, -1px);
 }
 .name { display: block; font-size: 14px; font-weight: 700; line-height: 1.2; }
@@ -119,13 +126,13 @@ h2 {
 .kg, .kg-auto {
   width: 64px; height: 36px;
   border: 1px solid var(--line); border-radius: 9px;
-  background: rgba(0,0,0,.35); color: var(--ink);
+  background: rgba(255,255,255,.55); color: var(--ink);
   font: 700 14px/1 -apple-system, system-ui, sans-serif;
   text-align: center;
 }
-.kg::placeholder { color: rgba(244,239,230,.35); font-weight: 600; }
+.kg::placeholder { color: rgba(42,34,24,.35); font-weight: 600; }
 .kg-auto {
   display: grid; place-items: center;
   color: var(--gold); border-style: dashed;
 }
-.kg-auto.empty { color: rgba(244,239,230,.3); }
+.kg-auto.empty { color: rgba(42,34,24,.28); }
