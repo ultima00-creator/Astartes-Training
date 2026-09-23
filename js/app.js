@@ -19,7 +19,7 @@
     } else if (flags.includes("K")) {
       right = `<input class="kg" data-id="${id}" inputmode="decimal" placeholder="kg" aria-label="carga">`;
     } else if (flags.includes("A")) {
-      right = `<span class="kg-auto empty" data-day="${dayId}" data-g="${g}" data-pct="${pct}">\u2014</span>`;
+      right = `<span class="kg-auto empty" data-day="${dayId}" data-g="${g}" data-pct="${pct}">—</span>`;
     }
     return `<label class="lift${bi}">
       <input type="checkbox" class="done" data-id="${id}">
@@ -48,11 +48,11 @@
 
   const cover = `<section class="screen cover" id="capa">
     <div class="cover-inner">
-      <p class="eyebrow">Astartes Training \u00b7 Angus Whitby \u00b7 SBD</p>
+      <p class="eyebrow">Astartes Training · Angus Whitby · SBD</p>
       <h1>5 semanas</h1>
-      <p class="sub">Seg \u00b7 Ter \u00b7 Qua \u00b7 Sex \u00b7 S\u00e1b</p>
-      <p class="hint">Rola pra baixo \u2014 cada dia \u00e9 uma tela. Top set preenche o backdown sozinho (arredonda 2,5 kg). Safari \u2192 Compartilhar \u2192 Adicionar \u00e0 Tela de In\u00edcio para gravar as cargas.</p>
-      <a class="go" href="#s1-seg">Come\u00e7ar semana 1</a>
+      <p class="sub">Seg · Ter · Qua · Sex · Sáb</p>
+      <p class="hint">Rola pra baixo — cada dia é uma tela. Top set preenche o backdown sozinho (arredonda 2,5 kg). Safari → Compartilhar → Adicionar à Tela de Início para gravar as cargas.</p>
+      <a class="go" href="#s1-seg">Começar semana 1</a>
     </div>
   </section>`;
 
@@ -82,7 +82,7 @@
     const n = parseFloat(String(raw).replace(",", "."));
     document.querySelectorAll('.kg-auto[data-day="' + day + '"][data-g="' + g + '"]').forEach((span) => {
       if (!isFinite(n) || n <= 0) {
-        span.textContent = "\u2014";
+        span.textContent = "—";
         span.classList.add("empty");
         return;
       }
