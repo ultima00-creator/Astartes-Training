@@ -4,7 +4,13 @@ const ASSETS = [
   "./index.html",
   "./css/app.css",
   "./js/app.js",
-  "./js/program.js",
+  "./js/p0.js",
+  "./js/p1.js",
+  "./js/p2.js",
+  "./js/p3.js",
+  "./js/p4.js",
+  "./js/p5.js",
+  "./js/program-boot.js",
   "./manifest.webmanifest",
   "./assets/icon.svg"
 ];
